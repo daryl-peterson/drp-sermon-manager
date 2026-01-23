@@ -78,4 +78,10 @@ class LoggerTest extends BaseTest {
 		Logger::set_writter( $writter );
 		$this->assertInstanceOf( LogFile::class, Logger::get_instance()->writter );
 	}
+
+	public function test_truncate_log() {
+		$writter = Logger::get_writter();
+		$result  = $writter->truncate();
+		$this->assertIsBool( $result );
+	}
 }
